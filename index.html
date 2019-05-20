@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Stopwatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrapper">
+  <div class="time">
+    <span id="minutes">00</span>
+    :
+    <span id="seconds">00</span>
+    <div class="controls">
+      <button id="reset">Reset</button>
+      <button id="action">Start</button>
+    </div>
+  </div>
+</div>
+</body>
+
+<script>
+  // You can also require other files to run in this process
+  require('./renderer.js')
+</script>
+<script src="app.js"></script>
+</html>
