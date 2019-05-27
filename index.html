@@ -2,21 +2,34 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Simple Stopwatch</title>
+  <title>Container App DSM</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrapper">
-  <div class="time">
-    <span id="minutes">00</span>
-    :
-    <span id="seconds">00</span>
-    <div class="controls">
-      <button id="reset">Reset</button>
-      <button id="action">Start</button>
+    <div class="list-type1">
+        <ol>
+            <li><a href="#">What did you do yesterday?</a></li>
+            <li><a href="#">What will you do today?</a></li>
+            <li><a href="#">Are there any obstacles in your way?</a></li>
+            <li><a href="#">Are you confident for the sprint?</a></li>
+        </ol>
     </div>
-  </div>
-</div>
+      <div class="TimeoutBanner">
+        <div id="timeoutBanner">
+          Time Out
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="time">
+          <span id="minutes">00</span>
+          :
+          <span id="seconds">00</span>
+          <div class="controls">
+            <button id="reset">Reset</button>
+            <button id="action">Start</button>
+          </div>
+        </div>
+      </div>
 </body>
 
 <script>

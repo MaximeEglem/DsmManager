@@ -18,5 +18,11 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.0"
+  },
+  "dependencies": {
+    "electron-builder": "^20.41.0",
+    "electron-forge": "^5.2.4",
+    "electron-package": "^0.1.0",
+    "electron-reload": "^1.4.0"
   }
 }
