@@ -1,22 +1,22 @@
 /* global document, setInterval, clearInterval */
 const dsmSessionSeconds = 70;
 
-var leftTime = dsmSessionSeconds;
-var seconds = document.getElementById("seconds");
-var minutes = document.getElementById("minutes");
-var action = document.getElementById("action");
-var reset = document.getElementById("reset");
+let leftTime = dsmSessionSeconds;
+const seconds = document.getElementById("seconds");
+const minutes = document.getElementById("minutes");
+const action = document.getElementById("action");
+const reset = document.getElementById("reset");
 
 action.addEventListener("click", onAction);
 reset.addEventListener("click", onReset);
 
-var interval = null;
+let interval = null;
 
-var state = {
+const state = {
     start: "START",
     pause: "PAUSE",
     reset: "RESET"
-}
+};
 
 function onAction(){
     if(interval){
@@ -63,10 +63,10 @@ function setTime(m, s) {
 
 function updateTime() {
 
-    var hronoMinutes = Math.floor(leftTime / 60);
-    var hronoSeconds = (leftTime % 60);
+    const hronoMinutes = Math.floor(leftTime / 60);
+    const hronoSeconds = (leftTime % 60);
     setTime(hronoMinutes >= 0 ? hronoMinutes : 0, 
-        hronoSeconds >= 0 ? hronoSeconds : 0)
+        hronoSeconds >= 0 ? hronoSeconds : 0);
     leftTime --;
 
     if (leftTime < 0)
@@ -85,7 +85,7 @@ function resetTime(){
 
 function startTimer() {
     document.getElementById("timeoutBanner").style.display = 'none';
-    leftTime = leftTime == 0 ? dsmSessionSeconds : leftTime; 
+    leftTime = leftTime === 0 ? dsmSessionSeconds : leftTime;
     interval = setInterval(updateTime, 1000);
     reset.disabled = true;
 }
@@ -105,5 +105,4 @@ function stopTimer(){
     interval = null;
     updateActionButton();
     reset.disabled = false;
-    
 }
