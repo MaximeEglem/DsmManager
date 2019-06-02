@@ -65,7 +65,6 @@ button:disabled {
     position: relative;
     display: block;
     padding: .4em .4em .4em 2em;
-    *padding: .4em;
     margin: .5em 0;
     background: #93C775;
     color: #000;
