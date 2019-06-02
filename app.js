@@ -63,11 +63,8 @@ function setTime(m, s) {
 
 function updateTime() {
 
-    var hronoMinutes = Math.floor(leftTime / 60);
-    var hronoSeconds = (leftTime % 60);
-    setTime(hronoMinutes >= 0 ? hronoMinutes : 0, 
-        hronoSeconds >= 0 ? hronoSeconds : 0)
     leftTime --;
+    updateTimer();
 
     if (leftTime < 0)
     {
@@ -75,6 +72,12 @@ function updateTime() {
         stopTimer();
         resetTime();
     }
+}
+
+function updateTimer() {
+    var hronoMinutes = Math.floor(leftTime / 60);
+    var hronoSeconds = (leftTime % 60);
+    setTime(hronoMinutes >= 0 ? hronoMinutes : 0, hronoSeconds >= 0 ? hronoSeconds : 0);
 }
 
 function resetTime(){
@@ -86,6 +89,7 @@ function resetTime(){
 function startTimer() {
     document.getElementById("timeoutBanner").style.display = 'none';
     leftTime = leftTime == 0 ? dsmSessionSeconds : leftTime; 
+    updateTimer();
     interval = setInterval(updateTime, 1000);
     reset.disabled = true;
 }
