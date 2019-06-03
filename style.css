@@ -115,4 +115,17 @@ button:disabled {
         font-size: 80pt;
         text-align: center;
       }
+      .presenters{
+        background: #93C775;
+        width: 300px;
+      }
+      .current-presenter{
+          color: #666;
+          font-size: 20pt;
+      }
+      .next-presenter
+      {
+        color: #FFF;
+        font-size: 16pt;
+      }
     

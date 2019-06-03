@@ -1,51 +1,40 @@
-/* global document, setInterval, clearInterval */
 const dsmSessionSeconds = 70;
 
-let leftTime = dsmSessionSeconds;
+let leftTime = 0;
 const seconds = document.getElementById("seconds");
 const minutes = document.getElementById("minutes");
 const action = document.getElementById("action");
-const reset = document.getElementById("reset");
-
+const next = document.getElementById("next");
+const currentPresenter = document.getElementById("current-presenters-name");
+const nextPresenter = document.getElementById("next-presenters-name");
+var timeoutBannerDisplay = document.getElementById("timeoutBanner").style;
 action.addEventListener("click", onAction);
-reset.addEventListener("click", onReset);
+next.addEventListener("click", onNext);
 
+var partisipantsLocal = [ "Tony", "Maxime", "Guillaume", "Serguei", "Kirill", "Taysir", "Sandy"];
+var partisipantsDevDistance = ["Pierre Christophe", "Laurentiu",];
+var otherParticipants = ["Marie", "John", "Matthieu", "Victor"];
 let interval = null;
+
+var participantIndex = Math.floor(Math.random() * partisipantsLocal.length);
+currentPresenter.innerHTML = partisipantsLocal[participantIndex];
+partisipantsLocal.splice(participantIndex, 1);
 
 const state = {
     start: "START",
-    pause: "PAUSE",
-    reset: "RESET"
+    next: "NEXT",
 };
 
+
 function onAction(){
-    if(interval){
-        changeState(state.pause);
-    } else {
-        changeState(state.start);
-    }
+    startTimer();
 }
 
-function onReset(){
-    changeState(state.reset);
-}
-
-function changeState(st){
-    switch (st) {
-        case state.start:
-            startTimer();
-            break;
-        case state.pause:
-            stopTimer();
-            break;
-        case state.reset:
-            stopTimer();
-            resetTime();
-            break;
-        default:
-            throw new Error("Unknown state")
-    }
-    updateActionButton();
+function onNext(){
+    currentPresenter.innerHTML = getParticipentName();
+    removeParticipent();
+    stopTimer();
+    resetTime();
 }
 
 function getString(n) {
@@ -68,9 +57,8 @@ function updateTime() {
 
     if (leftTime < 0)
     {
-        document.getElementById("timeoutBanner").style.display = 'block';
+        timeoutBannerDisplay.display = 'block';
         stopTimer();
-        resetTime();
     }
 }
 
@@ -81,32 +69,55 @@ function updateTimer() {
 }
 
 function resetTime(){
+
+    timeoutBannerDisplay.display = 'none';
     leftTime = dsmSessionSeconds;
     seconds.innerHTML = "00";
     minutes.innerHTML = "00";
 }
 
 function startTimer() {
-    document.getElementById("timeoutBanner").style.display = 'none';
+    timeoutBannerDisplay.display = 'none';
+    getParticipentIndex();
+    nextPresenter.innerHTML = getParticipentName();
     leftTime = leftTime == 0 ? dsmSessionSeconds : leftTime; 
     updateTimer();
     interval = setInterval(updateTime, 1000);
-    reset.disabled = true;
 }
 
-function updateActionButton(){
-    if (interval){
-        action.innerText = "Pause";
-    } else if (leftTime > 0) {
-        action.innerText = "Continue";
-    } else {
-        action.innerText = "Start";
-    }
+function getParticipentName()
+{
+    if (partisipantsLocal.length > 0)
+        return partisipantsLocal[participantIndex];
+    if (partisipantsDevDistance.length > 0)
+        return partisipantsDevDistance[participantIndex];
+    if (otherParticipants.length > 0)
+        return otherParticipants[participantIndex];
+}
+
+function removeParticipent()
+{
+    nextPresenter.innerHTML = "";
+
+    if (partisipantsLocal.length > 0)
+        partisipantsLocal.splice(participantIndex, 1);
+    if (partisipantsDevDistance.length > 0)
+        partisipantsDevDistance.splice(participantIndex, 1);
+    if (otherParticipants.length > 0)
+        otherParticipants.splice(participantIndex, 1);
+}
+
+function getParticipentIndex()
+{
+    if (partisipantsLocal.length > 0)
+        participantIndex = Math.floor(Math.random() * partisipantsLocal.length);
+    if (partisipantsDevDistance.length > 0)
+        participantIndex = Math.floor(Math.random() * partisipantsDevDistance.length);
+    if (otherParticipants.length > 0)
+        participantIndex = Math.floor(Math.random() * otherParticipants.length);
 }
 
 function stopTimer(){
     clearInterval(interval);
     interval = null;
-    updateActionButton();
-    reset.disabled = false;
 }

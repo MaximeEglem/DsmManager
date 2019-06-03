@@ -6,6 +6,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="presenters">
+    <div class="current-presenter">
+      <span>Now presenting:</span>
+      <span id="current-presenters-name"></span>
+    </div>
+    <div class="next-presenter">
+      <span>Next will present:</span>
+      <span id="next-presenters-name"></span>
+    </div>
+  </div>
     <div class="list-type1">
         <ol>
             <li><a href="#">What did you do yesterday?</a></li>
@@ -25,8 +35,8 @@
           :
           <span id="seconds">00</span>
           <div class="controls">
-            <button id="reset">Reset</button>
             <button id="action">Start</button>
+            <button id="next">Next</button>
           </div>
         </div>
       </div>
