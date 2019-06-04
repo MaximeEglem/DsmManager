@@ -13,7 +13,7 @@ next.addEventListener("click", onNext);
 
 var partisipantsLocal = [ "Tony", "Maxime", "Guillaume", "Serguei", "Kirill", "Taysir", "Sandy"];
 var partisipantsDevDistance = ["Pierre Christophe", "Laurentiu",];
-var otherParticipants = ["Marie", "John", "Matthieu", "Victor"];
+var otherParticipants = ["Marie", "John", "Matthieu", "Victor", "Shivani"];
 let interval = null;
 
 var participantIndex = Math.floor(Math.random() * partisipantsLocal.length);
@@ -89,9 +89,9 @@ function getParticipentName()
 {
     if (partisipantsLocal.length > 0)
         return partisipantsLocal[participantIndex];
-    if (partisipantsDevDistance.length > 0)
+    else if (partisipantsDevDistance.length > 0)
         return partisipantsDevDistance[participantIndex];
-    if (otherParticipants.length > 0)
+    else if (otherParticipants.length > 0)
         return otherParticipants[participantIndex];
 }
 
@@ -101,9 +101,9 @@ function removeParticipent()
 
     if (partisipantsLocal.length > 0)
         partisipantsLocal.splice(participantIndex, 1);
-    if (partisipantsDevDistance.length > 0)
+    else if (partisipantsDevDistance.length > 0)
         partisipantsDevDistance.splice(participantIndex, 1);
-    if (otherParticipants.length > 0)
+    else if (otherParticipants.length > 0)
         otherParticipants.splice(participantIndex, 1);
 }
 
@@ -111,9 +111,9 @@ function getParticipentIndex()
 {
     if (partisipantsLocal.length > 0)
         participantIndex = Math.floor(Math.random() * partisipantsLocal.length);
-    if (partisipantsDevDistance.length > 0)
+    else if (partisipantsDevDistance.length > 0)
         participantIndex = Math.floor(Math.random() * partisipantsDevDistance.length);
-    if (otherParticipants.length > 0)
+    else if (otherParticipants.length > 0)
         participantIndex = Math.floor(Math.random() * otherParticipants.length);
 }
 
