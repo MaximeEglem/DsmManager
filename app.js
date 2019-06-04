@@ -31,6 +31,7 @@ function onAction(){
 }
 
 function onNext(){
+    action.disabled = false;
     currentPresenter.innerHTML = getParticipentName();
     removeParticipent();
     stopTimer();
@@ -77,6 +78,7 @@ function resetTime(){
 }
 
 function startTimer() {
+    action.disabled = true;
     timeoutBannerDisplay.display = 'none';
     getParticipentIndex();
     nextPresenter.innerHTML = getParticipentName();
