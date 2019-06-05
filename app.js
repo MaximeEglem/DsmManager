@@ -11,9 +11,9 @@ var timeoutBannerDisplay = document.getElementById("timeoutBanner").style;
 action.addEventListener("click", onAction);
 next.addEventListener("click", onNext);
 
-var partisipantsLocal = [ "Tony", "Maxime", "Guillaume", "Serguei", "Kirill", "Taysir", "Sandy"];
-var partisipantsDevDistance = ["Pierre Christophe", "Laurentiu",];
-var otherParticipants = ["Marie", "John", "Matthieu", "Victor", "Shivani"];
+var partisipantsLocal = [ "Tony", "Maxime", "Guillaume", "Serguei", "Kirill", "Tayssir", "Sandy"];
+var partisipantsDevDistance = ["Pierre Christophe", "Laurentiu"];
+var otherParticipants = ["Marie", "John", "Matthieu", "Victor", "Benjamin"];
 let interval = null;
 
 var participantIndex = Math.floor(Math.random() * partisipantsLocal.length);
@@ -95,6 +95,7 @@ function getParticipentName()
         return partisipantsDevDistance[participantIndex];
     else if (otherParticipants.length > 0)
         return otherParticipants[participantIndex];
+    else return "Guest";
 }
 
 function removeParticipent()

@@ -9,6 +9,7 @@ body {
     width: 385px;
     height: 200px;
     margin: auto;
+    margin-top: 40px;
     font-family: sans-serif;
     color: skyblue;
 }
@@ -106,7 +107,8 @@ button:disabled {
         display: none;
         position: relative; /* child absolute */
         margin: 0 -9999rem;
-        height: 150px;
+        margin-top: 30px;
+        height: 100px;
         /* add back section padding value */
         padding: .25rem 9999rem;
         background: #666;
@@ -116,16 +118,28 @@ button:disabled {
         text-align: center;
       }
       .presenters{
+        margin-left: 400px;
         background: #93C775;
-        width: 300px;
+        width: 450px;
+        height: auto;
+        text-align: center;
       }
       .current-presenter{
-          color: #666;
+          color: #FFF;
           font-size: 20pt;
       }
       .next-presenter
       {
-        color: #FFF;
+        color: #666;
         font-size: 16pt;
+      }
+      #current-presenters-name
+      {
+          font-size: 24pt;
+      }
+
+      #next-presenters-name
+      {
+          font-size: 18pt;
       }
     
