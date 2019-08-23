@@ -1,4 +1,4 @@
-const dsmSessionSeconds = 65;
+const dsmSessionSeconds = 90;
 
 let leftTime = 0;
 const seconds = document.getElementById("seconds");
@@ -11,9 +11,10 @@ var timeoutBannerDisplay = document.getElementById("timeoutBanner").style;
 action.addEventListener("click", onAction);
 next.addEventListener("click", onNext);
 
-var partisipantsLocal = [ "Tony", "Maxime", "Guillaume", "Serguei", "Kirill", "Tayssir", "Sandy"];
-var partisipantsDevDistance = ["Pierre Christophe", "Laurentiu", "Timothé"];
-var otherParticipants = ["Marie", "John", "Victor", "Benjamin"];
+var partisipantsLocal = [ "Cellenza Team"];
+var partisipantsDevDistance = ["RO Team"];
+var otherParticipants = ["John", "Victor", "Anna-Maria"];
+//"Marie", "Benjamin"
 let interval = null;
 
 var participantIndex = Math.floor(Math.random() * partisipantsLocal.length);
